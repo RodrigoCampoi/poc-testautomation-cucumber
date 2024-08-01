@@ -8,8 +8,6 @@ public class DCSCONSTANTSOK {
     public static final String URL_DCS_BASE= "https://api.dcs-hml.internal.dock.tech";
     public static final String TOKEN = "xxx";
     public static final String AUTH_ENDPOINT = "/auth";
-    public static final String HEADER_CONTENT_TYPE = "Content-Type";
-    public static final String CONTENT_TYPE_JSON = "application/json";
     public static final String HEADER_AUTHORIZATION = "Authorization";
     public static final String COMMUNICATION_CHANNEL = "SMS";
     public static final String MESSAGE = "TESTE";

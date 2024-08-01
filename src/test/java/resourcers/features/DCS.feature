@@ -5,7 +5,7 @@ Feature: DCS ou CCS desacoplado é um produto que foi criado para permitir a com
 
        Given Todas as informações de Payload OK
        When Com a chave <placeholders> vazia
-       And Remove TAG
        Then Processar e estabelecer a comunicação com o falcon passando as informações.
        Examples:
-        |teste|
+        |placeholders| " "|
+

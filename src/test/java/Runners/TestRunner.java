@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "C:\\projetos\\poctTestCucumber\\src\\test\\java\\features",
-        glue = {"C:\\projetos\\poctTestCucumber\\src\\test\\java\\Steps"},
+        features = "src/test/java/resourcers/features",
+        glue = {"Steps"},
         plugin = {"pretty", "html:target/cucumber-reports"}
 
         // plugin = {"pretty","html:target/cucumber-tml-report","json:cucumber.json"}
