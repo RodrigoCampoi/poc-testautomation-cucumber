@@ -1,0 +1,32 @@
+{
+  "event": {
+    "communication_channel": "SMS",
+    "message": "",
+    "created": "2024-07-22T12:00:00.000-03:00",
+    "placeholders": [
+      {
+        "key": "message_TESTE",
+        "value": "Olá Campoi, essa é uma mensagem do DCS (CCS desacoplado). Em breve você poderá respondê-la. Um abraço, time Antifraud"
+      },
+      {
+        "key": "XYZ",
+        "value": "X"
+      },
+      {
+        "key": "Priority",
+        "value": "High"
+      }
+    ]
+  },
+  "holder": {
+    "name": "Alice Smith",
+    "email": "alice.smith@example.com",
+    "main_phone": "+5515199999999",
+    "other_phones": ["+5515199999999","+5515199999991","+5515199999992","+5515199999993"],
+    "pan": "abc123xyz"
+  },
+  "issuer": {
+    "external_id": "b8837924-77ca-405d-955a-20ba989132e6",
+    "workflow_id": "WF456"
+  }
+}
