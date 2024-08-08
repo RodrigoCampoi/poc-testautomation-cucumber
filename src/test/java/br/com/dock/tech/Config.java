@@ -1,13 +1,10 @@
-package resourcers;
+package br.com.dock.tech;
 
 import io.cucumber.java.Before;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.http.Method;
 import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
-import resourcers.CONS.DCSCONSTANTSOK;
 
 import static io.restassured.RestAssured.basePath;
 import static io.restassured.RestAssured.baseURI;
@@ -20,8 +17,8 @@ public class Config {
     private static final String GRANT_TYPE = "client_credentials";
 
     @Before
-    public void dcsSetup(){
-        baseURI = DCSCONSTANTSOK.URL_DCS_BASE;
+    public void dcsSetup() {
+        baseURI = Constants.URL_DCS_BASE;
         basePath = "/v1";
 
         RestAssured.requestSpecification = new RequestSpecBuilder()
@@ -38,8 +35,7 @@ public class Config {
                 .formParam("client_secret", CLIENT_SECRET)
                 .post(AUTH_URL);
 
-        return "Bearer " + response.jsonPath().getString("access_token");
+        return STR."Bearer \{response.jsonPath().getString("access_token")}";
     }
-
 
 }
