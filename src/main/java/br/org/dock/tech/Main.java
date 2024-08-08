@@ -1,4 +1,4 @@
-package org.example;
+package br.org.dock.tech;
 
 public class Main {
     public static void main(String[] args) {

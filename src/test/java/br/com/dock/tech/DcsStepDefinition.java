@@ -1,17 +1,18 @@
-package Steps;
+package br.com.dock.tech;
 
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
-import java.io.FileReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
-import resourcers.CONS.DCSCONSTANTSOK;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-public class dcsStepDefinition {
+import java.io.FileReader;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.hasKey;
+
+public class DcsStepDefinition {
 
     private Response response;
     private JSONObject json;
@@ -20,23 +21,25 @@ public class dcsStepDefinition {
     public void todas_as_informações_de_payload_ok() throws Exception {
 
         JSONParser parser = new JSONParser();
-        json = (JSONObject) parser.parse( new FileReader("C:/projetos/poctTestCucumber/src/tes/java/JSONS/eventDCS.JSON"));
+        json = (JSONObject) parser.parse(new FileReader("event-dcs.json"));
     }
+
     @When("Com a chave <placeholders> vazia")
-    public void com_a_chave_placeholders_vazia(String key, String newValue )  {
+    public void com_a_chave_placeholders_vazia(String key, String newValue) {
         //alterar o campo conforme parâmetro
-        json.put(key,newValue);
+        json.put(key, newValue);
 
-                 Response resp = given()
+        Response resp = given()
                 .body(json)
-                .post(DCSCONSTANTSOK.URL_DCS_BASE + "/v1/events");
+                .post(STR."\{Constants.URL_DCS_BASE}/v1/events");
 
     }
+
     @Then("Processar e estabelecer a comunicação com o falcon passando as informações.")
     public void processar_e_estabelecer_a_comunicação_com_o_falcon_passando_as_informações() {
 
         response.then().statusCode(202)
-                .body("$",hasKey("event_id"));
+                .body("$", hasKey("event_id"));
     }
 
 }
